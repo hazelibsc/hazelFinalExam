@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Transaction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container text-center">
+    <h2>Edit Transaction</h2>
+
+    <form id="editForm" class="edit-form" th:action="@{/update}" th:object="${editedTransaction}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <div class="mb-3">
+            <label class="form-label">Date of Transaction:</label>
+            <input type="date" class="form-control" th:field="*{dot}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Salesman:</label>
+            <input type="text" class="form-control" th:field="*{name}" required>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Amount:</label>
+            <input type="number" step="0.01" class="form-control" th:field="*{amount}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Item Type:</label>
+            <input type="text" class="form-control" th:field="*{item}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+</body>
+</html>
